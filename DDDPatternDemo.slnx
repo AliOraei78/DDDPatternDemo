@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="DDDPatternDemo.Console/DDDPatternDemo.Console.csproj" />
+  <Project Path="DDDPatternDemo.Domain/DDDPatternDemo.Domain.csproj" />
+  <Project Path="DDDPatternDemo.Infrastructure/DDDPatternDemo.Infrastructure.csproj" />
+</Solution>
