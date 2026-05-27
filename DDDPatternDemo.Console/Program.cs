@@ -1,4 +1,5 @@
-﻿using DDDPatternDemo.Domain.Entities;
+﻿/*
+using DDDPatternDemo.Domain.Entities;
 
 Console.WriteLine("Day 3 - Entity Demo");
 
@@ -22,3 +23,29 @@ catch (Exception ex)
 {
     Console.WriteLine($"Error: {ex.Message}");
 }
+*/
+
+using DDDPatternDemo.Domain.Entities;
+using DDDPatternDemo.Domain.ValueObjects;
+
+Console.WriteLine("=== Day 4 - Value Object Demo ===\n");
+
+var money1 = Money.Create(1250000, "IRR");
+var money2 = Money.Create(750000, "IRR");
+var total = money1.Add(money2);
+
+Console.WriteLine($"Amount 1: {money1}");
+Console.WriteLine($"Amount 2: {money2}");
+Console.WriteLine($"Total: {total}");
+
+var email = Email.Create("info@example.com");
+Console.WriteLine($"Email: {email}");
+
+var address = Address.Create("Enghelab Street", "Tehran", "1234567890");
+Console.WriteLine($"Address: {address.Street}, {address.City}");
+
+// Immutability and equality test
+var moneyA = Money.Create(1000);
+var moneyB = Money.Create(1000);
+
+Console.WriteLine($"Are two Money objects with the same values equal? {moneyA.Equals(moneyB)}");

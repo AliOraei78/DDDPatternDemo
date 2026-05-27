@@ -10,7 +10,6 @@
     <Folder Include="Aggregates\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Common\" />
-    <Folder Include="ValueObjects\" />
   </ItemGroup>
 
 </Project>

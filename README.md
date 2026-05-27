@@ -25,3 +25,12 @@ Educational sample project demonstrating **Domain-Driven Design (DDD)** patterns
 * Behavioral methods instead of public setters
 * Implementing `Equals` and `GetHashCode` based on Identity
 * Example: `Customer` class
+
+## Day 4 – Value Object
+
+* Definition of a Value Object and its fundamental difference from an Entity
+* Implementation using `record` for natural immutability
+* Applying business rules in the Factory Method
+* Value Object composition (example: `Address`)
+* Implementing equality based on values
+* Practical examples: `Money`, `Email`, `Address`
