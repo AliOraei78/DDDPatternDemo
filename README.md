@@ -16,3 +16,12 @@ Educational sample project demonstrating **Domain-Driven Design (DDD)** patterns
   * `Shipping.Order` → focused on shipping and shipment tracking
 * Simple illustration of a **Context Map** (relationship between the two contexts)
 
+## Day 3 – Entity
+
+* Definition of an Entity and its difference from a Value Object
+* Implementing an Entity with identity (`Guid Id`)
+* Using a Factory Method to create a valid instance
+* Applying invariants and throwing Domain Exceptions
+* Behavioral methods instead of public setters
+* Implementing `Equals` and `GetHashCode` based on Identity
+* Example: `Customer` class
