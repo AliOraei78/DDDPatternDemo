@@ -74,3 +74,28 @@ Console.WriteLine($"Status: {order.Status}");
 order.Confirm();
 Console.WriteLine($"After Confirmation - Status: {order.Status}");
 */
+
+using DDDPatternDemo.Domain.Aggregates;
+using DDDPatternDemo.Domain.Interfaces;
+using DDDPatternDemo.Domain.ValueObjects;
+using DDDPatternDemo.Infrastructure.Repositories;
+
+Console.WriteLine("=== Day 6 - Repository & Unit of Work Demo ===\n");
+
+// Create Repository and UnitOfWork
+IOrderRepository repository = new InMemoryOrderRepository();
+IUnitOfWork unitOfWork = new InMemoryUnitOfWork(repository);
+
+var email = Email.Create("test@example.com");
+var order = Order.Create("ORD-2026006", email);
+
+var item = OrderItem.Create(Guid.NewGuid(), "Headphones", 1, Money.Create(1250000));
+
+order.AddItem(item);
+order.Confirm();
+
+await repository.AddAsync(order);
+await unitOfWork.SaveChangesAsync();
+
+Console.WriteLine($"Order with ID {order.Id} was successfully saved.");
+Console.WriteLine($"Total Orders Count: {(await repository.GetAllAsync()).Count}");

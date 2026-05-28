@@ -42,3 +42,11 @@ Educational sample project demonstrating **Domain-Driven Design (DDD)** patterns
 - Complete example: Order Aggregate including OrderItem and Value Objects
 - Enforcing business rules inside the Aggregate Root (RecalculateTotal, Confirm)
 - Preventing direct access to internal Entities
+
+## Day 6 – Basic Repository and Unit of Work
+
+- Defining the Repository Interface in the Domain layer
+- Implementing an In-Memory Repository in the Infrastructure layer
+- Introducing Unit of Work for transaction management
+- Complete separation of the Domain from persistence technology
+- Practical example using the Order Aggregate
