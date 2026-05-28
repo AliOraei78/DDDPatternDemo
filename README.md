@@ -34,3 +34,11 @@ Educational sample project demonstrating **Domain-Driven Design (DDD)** patterns
 * Value Object composition (example: `Address`)
 * Implementing equality based on values
 * Practical examples: `Money`, `Email`, `Address`
+
+## Day 5 – Aggregate and Aggregate Root
+
+- Definition of Aggregate and Aggregate Root
+- Designing Consistency Boundaries and Business Invariants
+- Complete example: Order Aggregate including OrderItem and Value Objects
+- Enforcing business rules inside the Aggregate Root (RecalculateTotal, Confirm)
+- Preventing direct access to internal Entities

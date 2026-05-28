@@ -23,7 +23,6 @@ catch (Exception ex)
 {
     Console.WriteLine($"Error: {ex.Message}");
 }
-*/
 
 using DDDPatternDemo.Domain.Entities;
 using DDDPatternDemo.Domain.ValueObjects;
@@ -49,3 +48,29 @@ var moneyA = Money.Create(1000);
 var moneyB = Money.Create(1000);
 
 Console.WriteLine($"Are two Money objects with the same values equal? {moneyA.Equals(moneyB)}");
+
+using DDDPatternDemo.Domain.Aggregates;
+using DDDPatternDemo.Domain.ValueObjects;
+using DDDPatternDemo.Domain.Entities;
+
+Console.WriteLine("=== Day 5 - Aggregate & Aggregate Root Demo ===\n");
+
+var customerEmail = Email.Create("customer@example.com");
+var address = Address.Create("Enghelab Street", "Tehran", "12345");
+
+var order = Order.Create("ORD-2026001", customerEmail, address);
+
+var item1 = OrderItem.Create(Guid.NewGuid(), "Laptop", 1, Money.Create(25000000));
+var item2 = OrderItem.Create(Guid.NewGuid(), "Mouse", 2, Money.Create(450000));
+
+order.AddItem(item1);
+order.AddItem(item2);
+
+Console.WriteLine($"Order Number: {order.OrderNumber}");
+Console.WriteLine($"Number of Items: {order.Items.Count}");
+Console.WriteLine($"Total Amount: {order.TotalAmount}");
+Console.WriteLine($"Status: {order.Status}");
+
+order.Confirm();
+Console.WriteLine($"After Confirmation - Status: {order.Status}");
+*/
