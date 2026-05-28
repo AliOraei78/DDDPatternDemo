@@ -73,7 +73,6 @@ Console.WriteLine($"Status: {order.Status}");
 
 order.Confirm();
 Console.WriteLine($"After Confirmation - Status: {order.Status}");
-*/
 
 using DDDPatternDemo.Domain.Aggregates;
 using DDDPatternDemo.Domain.Interfaces;
@@ -99,3 +98,34 @@ await unitOfWork.SaveChangesAsync();
 
 Console.WriteLine($"Order with ID {order.Id} was successfully saved.");
 Console.WriteLine($"Total Orders Count: {(await repository.GetAllAsync()).Count}");
+
+using DDDPatternDemo.Domain.Aggregates;
+using DDDPatternDemo.Domain.Interfaces;
+using DDDPatternDemo.Domain.Services;
+using DDDPatternDemo.Domain.ValueObjects;
+using DDDPatternDemo.Infrastructure.Repositories;
+
+Console.WriteLine("=== Day 7 - Domain Service Demo ===\n");
+
+// Create dependencies
+IOrderRepository repository = new InMemoryOrderRepository();
+IUnitOfWork unitOfWork = new InMemoryUnitOfWork(repository);
+IOrderProcessingService orderService = new OrderProcessingService(repository, unitOfWork);
+
+// Create order
+var email = Email.Create("customer@example.com");
+var order = Order.Create("ORD-2026007", email);
+
+var item1 = OrderItem.Create(Guid.NewGuid(), "Dell Laptop", 1, Money.Create(32000000));
+order.AddItem(item1);
+
+Console.WriteLine($"Total amount before processing: {order.TotalAmount}");
+
+// Use Domain Service
+await orderService.ProcessNewOrderAsync(order);
+
+// Confirm order through the Service
+await orderService.ConfirmOrderAsync(order.Id);
+
+Console.WriteLine("Processing completed.");
+*/

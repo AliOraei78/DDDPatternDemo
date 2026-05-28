@@ -50,3 +50,11 @@ Educational sample project demonstrating **Domain-Driven Design (DDD)** patterns
 - Introducing Unit of Work for transaction management
 - Complete separation of the Domain from persistence technology
 - Practical example using the Order Aggregate
+
+## Day 7 – Domain Service
+
+- Definition of a Domain Service as a stateless service
+- Injecting Repository and UnitOfWork
+- Implementing complex domain logic that spans multiple Aggregates
+- Example: `OrderProcessingService` for processing and confirming orders
+- Separating business logic from the Aggregate Root
