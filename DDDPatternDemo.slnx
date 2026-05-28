@@ -5,4 +5,5 @@
   <Project Path="DDDPatternDemo.Console/DDDPatternDemo.Console.csproj" />
   <Project Path="DDDPatternDemo.Domain/DDDPatternDemo.Domain.csproj" />
   <Project Path="DDDPatternDemo.Infrastructure/DDDPatternDemo.Infrastructure.csproj" />
+  <Project Path="DDDPatternDemo.Tests/DDDPatternDemo.Tests.csproj" Id="48e80146-8e4f-4bdd-a9b0-2ec535ad7d18" />
 </Solution>
