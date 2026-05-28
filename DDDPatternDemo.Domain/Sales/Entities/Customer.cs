@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using DDDPatternDemo.Domain.Exceptions;
+using DDDPatternDemo.Domain.Sales.Exceptions;
 
-namespace DDDPatternDemo.Domain.Entities
+namespace DDDPatternDemo.Domain.Sales.Entities
 {
     /// <summary>
     /// Customer – a classic Entity with persistent identity

@@ -1,7 +1,6 @@
-﻿using DDDPatternDemo.Domain.Aggregates;
-using DDDPatternDemo.Domain.ValueObjects;
+﻿using DDDPatternDemo.Domain.Sales.Aggregates;
 
-namespace DDDPatternDemo.Domain.Services
+namespace DDDPatternDemo.Domain.Sales.Services
 {
     public interface IOrderProcessingService
     {

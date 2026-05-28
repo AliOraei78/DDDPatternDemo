@@ -1,9 +1,8 @@
-﻿using DDDPatternDemo.Domain.Aggregates;
-using DDDPatternDemo.Domain.Exceptions;
-using DDDPatternDemo.Domain.Interfaces;
-using DDDPatternDemo.Domain.ValueObjects;
+﻿using DDDPatternDemo.Domain.Sales.Exceptions;
+using DDDPatternDemo.Domain.Sales.Aggregates;
+using DDDPatternDemo.Domain.Sales.Interfaces;
 
-namespace DDDPatternDemo.Domain.Services
+namespace DDDPatternDemo.Domain.Sales.Services
 {
     public class OrderProcessingService : IOrderProcessingService
     {

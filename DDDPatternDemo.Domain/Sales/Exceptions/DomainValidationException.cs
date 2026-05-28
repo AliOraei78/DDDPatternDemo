@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DDDPatternDemo.Domain.Exceptions
+namespace DDDPatternDemo.Domain.Sales.Exceptions
 {
     public class DomainValidationException : Exception
     {

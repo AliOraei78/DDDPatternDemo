@@ -1,4 +1,4 @@
-﻿using DDDPatternDemo.Domain.Interfaces;
+﻿using DDDPatternDemo.Domain.Sales.Interfaces;
 
 namespace DDDPatternDemo.Infrastructure.Repositories
 {

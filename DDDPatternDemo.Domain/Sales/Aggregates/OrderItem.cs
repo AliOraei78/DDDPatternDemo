@@ -1,10 +1,10 @@
-﻿using DDDPatternDemo.Domain.Exceptions;
-using DDDPatternDemo.Domain.ValueObjects;
+﻿using DDDPatternDemo.Domain.Sales.Exceptions;
+using DDDPatternDemo.Domain.Sales.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DDDPatternDemo.Domain.Aggregates
+namespace DDDPatternDemo.Domain.Sales.Aggregates
 {
     public class OrderItem
     {

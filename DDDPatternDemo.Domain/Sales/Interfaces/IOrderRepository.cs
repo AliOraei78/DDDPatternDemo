@@ -1,6 +1,6 @@
-﻿using DDDPatternDemo.Domain.Aggregates;
+﻿using DDDPatternDemo.Domain.Sales.Aggregates;
 
-namespace DDDPatternDemo.Domain.Interfaces
+namespace DDDPatternDemo.Domain.Sales.Interfaces
 {
     /// <summary>
     /// Repository Interface for the Order Aggregate

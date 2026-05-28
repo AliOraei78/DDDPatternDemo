@@ -1,9 +1,9 @@
-﻿using DDDPatternDemo.Domain.Exceptions;
+﻿using DDDPatternDemo.Domain.Sales.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DDDPatternDemo.Domain.ValueObjects
+namespace DDDPatternDemo.Domain.Sales.ValueObjects
 {
     public record Money : IEquatable<Money>
     {

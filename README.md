@@ -58,3 +58,28 @@ Educational sample project demonstrating **Domain-Driven Design (DDD)** patterns
 - Implementing complex domain logic that spans multiple Aggregates
 - Example: `OrderProcessingService` for processing and confirming orders
 - Separating business logic from the Aggregate Root
+
+## Day 8 – Full Sample Implementation (Bounded Context: Sales)
+
+**Complete Order Management System sample** using all DDD patterns:
+
+### Implemented concepts:
+
+* **Bounded Context**: Sales
+* **Value Objects**: Money, Email, Address
+* **Entity**: Customer (extensible)
+* **Aggregate + Aggregate Root**: Order + OrderItem
+* **Repository**: IOrderRepository + InMemory Implementation
+* **Unit of Work**: Transaction management
+* **Domain Service**: OrderProcessingService
+
+### Full flow:
+
+1. Creation of Value Objects
+2. Building the Aggregate (Order)
+3. Adding items + automatic TotalAmount calculation
+4. Processing via Domain Service
+5. Order confirmation with Business Invariants enforced
+6. Saving and retrieving through Repository
+
+This project is ready to showcase on LinkedIn and GitHub.

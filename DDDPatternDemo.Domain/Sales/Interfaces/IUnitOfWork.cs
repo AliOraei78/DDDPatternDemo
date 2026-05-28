@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DDDPatternDemo.Domain.Interfaces
+namespace DDDPatternDemo.Domain.Sales.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {

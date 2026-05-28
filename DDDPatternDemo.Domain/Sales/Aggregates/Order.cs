@@ -1,18 +1,15 @@
-﻿using DDDPatternDemo.Domain.Exceptions;
-using DDDPatternDemo.Domain.ValueObjects;
+﻿using DDDPatternDemo.Domain.Sales.Exceptions;
+using DDDPatternDemo.Domain.Sales.ValueObjects;
 
-namespace DDDPatternDemo.Domain.Aggregates
+namespace DDDPatternDemo.Domain.Sales.Aggregates
 {
-    /// <summary>
-    /// Aggregate Root - Complete Order
-    /// </summary>
     public class Order
     {
         public Guid Id { get; private set; }
         public string OrderNumber { get; private set; } = string.Empty;
         public DateTime OrderDate { get; private set; }
         public Money TotalAmount { get; private set; } = Money.Create(0);
-        public Email CustomerEmail { get; private set; } = Email.Create("temp@example.com");
+        public Email CustomerEmail { get; private set; }
         public Address? ShippingAddress { get; private set; }
         public string Status { get; private set; } = "Pending";
 
@@ -29,7 +26,7 @@ namespace DDDPatternDemo.Domain.Aggregates
             return new Order
             {
                 Id = Guid.NewGuid(),
-                OrderNumber = orderNumber.Trim(),
+                OrderNumber = orderNumber,
                 OrderDate = DateTime.UtcNow,
                 CustomerEmail = customerEmail,
                 ShippingAddress = shippingAddress,
@@ -55,24 +52,22 @@ namespace DDDPatternDemo.Domain.Aggregates
 
         private void RecalculateTotal()
         {
-            decimal total = _items.Sum(i => i.GetTotalPrice().Amount);
-            TotalAmount = Money.Create(total, TotalAmount.Currency);
+            var total = _items.Sum(i => i.GetTotalPrice().Amount);
+            TotalAmount = Money.Create(total);
         }
 
         public void Confirm()
         {
             if (Status != "Pending")
-                throw new InvalidOperationException("Only orders with Pending status can be confirmed.");
+                throw new InvalidOperationException("Only Pending orders can be confirmed.");
 
             if (_items.Count == 0)
                 throw new DomainValidationException("An order without items cannot be confirmed.");
 
             if (TotalAmount.Amount <= 0)
-                throw new DomainValidationException("The total order amount must be positive.");
+                throw new DomainValidationException("Order total must be positive.");
 
             Status = "Confirmed";
         }
-
-        // Business Invariant: TotalAmount must always equal the sum of all item totals
     }
 }

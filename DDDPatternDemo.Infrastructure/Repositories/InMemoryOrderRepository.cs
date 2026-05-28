@@ -1,5 +1,5 @@
-﻿using DDDPatternDemo.Domain.Aggregates;
-using DDDPatternDemo.Domain.Interfaces;
+﻿using DDDPatternDemo.Domain.Sales.Aggregates;
+using DDDPatternDemo.Domain.Sales.Interfaces;
 
 namespace DDDPatternDemo.Infrastructure.Repositories
 {

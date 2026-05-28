@@ -129,3 +129,43 @@ await orderService.ConfirmOrderAsync(order.Id);
 
 Console.WriteLine("Processing completed.");
 */
+
+using DDDPatternDemo.Domain.Sales.Aggregates;
+using DDDPatternDemo.Domain.Sales.Interfaces;
+using DDDPatternDemo.Domain.Sales.Services;
+using DDDPatternDemo.Domain.Sales.ValueObjects;
+using DDDPatternDemo.Infrastructure.Repositories;
+
+Console.WriteLine("=== Day 8 - Full DDD Implementation (Bounded Context: Sales) ===\n");
+
+// Configure dependencies
+IOrderRepository repository = new InMemoryOrderRepository();
+IUnitOfWork unitOfWork = new InMemoryUnitOfWork(repository);
+IOrderProcessingService orderService = new OrderProcessingService(repository, unitOfWork);
+
+// Step 1: Create customer and address
+var customerEmail = Email.Create("customer@example.com");
+var shippingAddress = Address.Create("Valiasr Street", "Tehran", "1598765432");
+
+// Step 2: Create Order Aggregate
+var order = Order.Create("ORD-2026008", customerEmail, shippingAddress);
+
+order.AddItem(OrderItem.Create(Guid.NewGuid(), "Lenovo Laptop", 1, Money.Create(28500000)));
+order.AddItem(OrderItem.Create(Guid.NewGuid(), "Wireless Mouse", 2, Money.Create(650000)));
+
+// Step 3: Process order via Domain Service
+await orderService.ProcessNewOrderAsync(order);
+
+// Step 4: Confirm order
+await orderService.ConfirmOrderAsync(order.Id);
+
+// Step 5: Retrieve order from Repository
+var retrievedOrder = await repository.GetByIdAsync(order.Id);
+
+Console.WriteLine("\n--- Retrieved Order ---");
+Console.WriteLine($"Order Number: {retrievedOrder?.OrderNumber}");
+Console.WriteLine($"Total Amount: {retrievedOrder?.TotalAmount}");
+Console.WriteLine($"Number of Items: {retrievedOrder?.Items.Count}");
+Console.WriteLine($"Status: {retrievedOrder?.Status}");
+
+Console.WriteLine("\n✅ All DDD concepts successfully implemented and tested!");
